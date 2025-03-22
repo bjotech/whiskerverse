@@ -163,7 +163,8 @@ def initialize_database():
         description TEXT,
         type ENUM('weapon', 'armor', 'potion', 'material', 'misc') NOT NULL,
         rarity ENUM('common', 'uncommon', 'rare', 'epic', 'legendary') NOT NULL,
-        value INT DEFAULT 0
+        value INT DEFAULT 0,
+        image_path VARCHAR(255) DEFAULT 'images/items/eternal_scroll_of_meowgic.png'
     )
     """
     

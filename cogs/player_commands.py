@@ -12,6 +12,9 @@ class PlayerCommands(commands.Cog):
     async def start(self, interaction: discord.Interaction):
         """Create a new player profile and get your first cat"""
         try:
+            # Defer the response immediately to prevent timeout
+            await interaction.response.defer()
+            
             success, message, cat = self.player_service.start_adventure(
                 discord_id=interaction.user.id,
                 username=interaction.user.name,
@@ -19,7 +22,7 @@ class PlayerCommands(commands.Cog):
             )
             
             if not success:
-                await interaction.response.send_message(
+                await interaction.followup.send(
                     f"{message}! Use `/profile` to see your status.",
                     ephemeral=True
                 )
@@ -49,21 +52,34 @@ class PlayerCommands(commands.Cog):
             
             embed.set_footer(text="Use /help to see all available commands!")
             
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
             
         except Exception as e:
-            await interaction.response.send_message(
-                f"An error occurred while starting your adventure: {str(e)}",
-                ephemeral=True
-            )
+            try:
+                if not interaction.response.is_done():
+                    await interaction.response.send_message(
+                        f"An error occurred while starting your adventure: {str(e)}",
+                        ephemeral=True
+                    )
+                else:
+                    await interaction.followup.send(
+                        f"An error occurred while starting your adventure: {str(e)}",
+                        ephemeral=True
+                    )
+            except Exception:
+                # If we can't send any response, just log the error
+                print(f"Failed to send error message: {str(e)}")
     
     @app_commands.command(name="profile", description="View your Whiskerverse profile")
     async def profile(self, interaction: discord.Interaction):
         """Display player profile information"""
         try:
+            # Defer the response immediately to prevent timeout
+            await interaction.response.defer()
+            
             profile_data = self.player_service.get_profile(interaction.user.id)
             if not profile_data:
-                await interaction.response.send_message(
+                await interaction.followup.send(
                     "You haven't started your adventure yet! Use `/start` to begin.",
                     ephemeral=True
                 )
@@ -119,13 +135,23 @@ class PlayerCommands(commands.Cog):
             
             embed.set_footer(text="Use /cats to see your cat collection and /inventory to see your items!")
             
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
             
         except Exception as e:
-            await interaction.response.send_message(
-                f"An error occurred while fetching your profile: {str(e)}",
-                ephemeral=True
-            )
+            try:
+                if not interaction.response.is_done():
+                    await interaction.response.send_message(
+                        f"An error occurred while fetching your profile: {str(e)}",
+                        ephemeral=True
+                    )
+                else:
+                    await interaction.followup.send(
+                        f"An error occurred while fetching your profile: {str(e)}",
+                        ephemeral=True
+                    )
+            except Exception:
+                # If we can't send any response, just log the error
+                print(f"Failed to send error message: {str(e)}")
 
 async def setup(bot):
     await bot.add_cog(PlayerCommands(bot)) 

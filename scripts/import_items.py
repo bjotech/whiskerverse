@@ -8,11 +8,21 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from models.database import DatabaseManager
 
+def ensure_image_directories():
+    """Create necessary image directories if they don't exist"""
+    image_dirs = ['images', 'images/items']
+    for dir_path in image_dirs:
+        os.makedirs(dir_path, exist_ok=True)
+        print(f"Ensured directory exists: {dir_path}")
+
 def import_items_from_csv(csv_path):
     """Import items from a CSV file into the database"""
     db = DatabaseManager()
     
     try:
+        # Ensure image directories exist
+        ensure_image_directories()
+        
         # Start a transaction for all inserts
         db.start_transaction()
         
@@ -40,25 +50,29 @@ def import_items_from_csv(csv_path):
                     'legendary': 2500
                 }.get(row['rarity'].lower(), 100)
                 
+                # Generate image path (for now, all use the same image)
+                image_path = 'images/items/eternal_scroll_of_meowgic.png'
+                
                 items_to_insert.append((
                     row['name'],
                     row['description'],
                     row['type'],
                     row['rarity'],
-                    value
+                    value,
+                    image_path
                 ))
         
         if items_to_insert:
             # Insert new items
             insert_query = """
-                INSERT INTO items (name, description, type, rarity, value)
-                VALUES (%s, %s, %s, %s, %s)
+                INSERT INTO items (name, description, type, rarity, value, image_path)
+                VALUES (%s, %s, %s, %s, %s, %s)
             """
             
             for item in items_to_insert:
                 try:
                     db.execute_query(insert_query, item)
-                    print(f"Added item: {item[0]}")
+                    print(f"Added item: {item[0]} (Image: {item[5]})")
                 except Exception as e:
                     print(f"Error adding item {item[0]}: {str(e)}")
         
