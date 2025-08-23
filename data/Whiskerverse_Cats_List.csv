@@ -1,0 +1,117 @@
+breed,rarity,health,attack,defense,speed
+Alley Cat,common,100,10,10,10
+Domestic Shorthair,common,95,12,9,11
+Tabby,common,90,11,11,12
+Siamese,uncommon,95,14,10,15
+Persian,uncommon,110,11,14,8
+Maine Coon,uncommon,120,13,12,9
+Russian Blue,uncommon,100,12,13,12
+Sphynx,rare,90,16,8,18
+Bengal,rare,105,15,11,16
+Scottish Fold,rare,115,14,15,10
+Celestial,epic,130,18,16,15
+Shadow Walker,epic,120,20,14,18
+Mystic Whisker,epic,125,17,17,17
+Ancient Guardian,legendary,150,22,20,18
+Star Whisperer,legendary,140,25,18,22
+Eternal Prowler,legendary,145,23,19,20
+Calico,common,92,11,10,12
+Tortoiseshell,common,94,12,10,11
+Snowshoe,common,96,11,9,13
+Ragdoll,common,98,10,12,10
+British Shorthair,common,97,12,11,10
+American Curl,common,93,11,10,12
+Japanese Bobtail,common,95,12,9,13
+Manx,common,96,11,12,11
+Norwegian Forest,common,99,12,12,10
+Turkish Van,common,97,11,11,12
+Himalayan,uncommon,110,13,14,9
+Tonkinese,uncommon,105,14,12,13
+Cornish Rex,uncommon,102,13,11,14
+Devon Rex,uncommon,103,14,10,13
+Oriental,uncommon,104,13,12,14
+Balinese,uncommon,106,12,13,13
+Burmese,uncommon,108,13,14,12
+Chartreux,uncommon,109,14,13,11
+LaPerm,uncommon,107,13,12,13
+Selkirk Rex,uncommon,106,12,14,12
+Savannah,rare,120,16,13,17
+Serengeti,rare,115,15,12,18
+Pixie Bob,rare,118,16,14,16
+Ocicat,rare,117,15,13,17
+Egyptian Mau,rare,119,16,12,18
+Kurilian Bobtail,rare,116,15,14,16
+Highlander,rare,118,16,13,17
+Munchkin,rare,115,15,12,18
+Cheetah Cub,rare,122,17,13,19
+Lynxling,rare,121,16,14,18
+Pirate Paws,epic,135,20,15,17
+Wizard Whiskers,epic,132,19,16,18
+Cybercat,epic,130,21,17,16
+Steampunk Stray,epic,128,18,18,17
+Samurai Shorthair,epic,133,20,17,16
+Vampurr,epic,129,19,16,18
+Dragon Tabby,epic,136,21,16,17
+Phoenix Fur,epic,134,20,18,16
+Ninja Nebula,epic,132,19,17,18
+Mermeow,epic,131,18,18,17
+Galactic Guardian,legendary,155,24,21,20
+Pharaoh Feline,legendary,150,23,22,19
+Cosmic Claw,legendary,152,25,20,21
+Royal Bengal,legendary,153,24,21,20
+Shadow Pharaoh,legendary,151,23,22,21
+Meowgician,legendary,154,25,20,22
+Captain Catbeard,legendary,156,26,21,21
+Robo Rex,legendary,150,27,22,20
+Mystic Lynx,legendary,153,25,21,22
+Celestial Sphinx,legendary,155,26,22,21
+Pumpkin Purr,common,91,10,10,12
+Apple Tabby,common,92,11,9,12
+Sunflower Shorthair,common,93,10,11,11
+Cloud Cat,common,94,11,10,12
+Rainy Maine,common,95,12,10,11
+Forest Feline,common,96,11,12,10
+Pebble Paws,common,97,12,11,10
+River Ragdoll,common,98,10,12,11
+Meadow Munchkin,common,99,11,10,12
+Daisy Devon,common,100,12,9,11
+Firework Fur,uncommon,111,13,14,9
+Thunder Tonk,uncommon,112,14,12,13
+Lightning LaPerm,uncommon,113,13,11,14
+Blizzard Burmese,uncommon,114,14,10,13
+Aurora Chartreux,uncommon,115,13,12,14
+Twilight Turkish,uncommon,116,12,13,13
+Starlight Selkirk,uncommon,117,13,14,12
+Moonlight Manx,uncommon,118,14,13,11
+Solar Savannah,uncommon,119,13,12,13
+Comet Cornish,uncommon,120,12,14,12
+Jungle Jaguar,rare,123,17,14,19
+Tundra Tiger,rare,124,16,15,18
+Desert Lynx,rare,125,17,13,19
+Mountain Mau,rare,126,16,14,18
+Ocean Ocelot,rare,127,17,15,16
+Savanna Sphynx,rare,128,16,14,17
+Rainforest Rex,rare,129,17,13,18
+Canyon Chartreux,rare,130,16,15,17
+Glacier Guardian,rare,131,17,14,18
+Volcano Van,rare,132,16,15,19
+Space Samurai,epic,137,21,18,18
+Time Traveler,epic,138,22,17,17
+Quantum Quasar,epic,139,21,19,16
+Starlord Stray,epic,140,22,18,17
+Infinity Feline,epic,141,21,19,18
+Nebula Ninja,epic,142,22,18,17
+Astro Alley,epic,143,21,19,18
+Comet Cat,epic,144,22,18,17
+Gravity Guardian,epic,145,21,19,18
+Blackhole Bengal,epic,146,22,18,17
+Emperor Eclipse,legendary,157,27,23,22
+Solar Sovereign,legendary,158,28,22,21
+Lunar Lord,legendary,159,27,23,22
+Stellar Sphinx,legendary,160,28,22,21
+Galactic General,legendary,161,27,23,22
+Cosmic Commander,legendary,162,28,22,21
+Nebula Noble,legendary,163,27,23,22
+Astro Archon,legendary,164,28,22,21
+Celestial Captain,legendary,165,27,23,22
+Universal Ulysses,legendary,166,28,22,21
