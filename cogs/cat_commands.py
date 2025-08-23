@@ -286,7 +286,7 @@ class CatCommands(commands.Cog):
                 description="You've encountered a wild cat! What would you like to do?",
                 color=discord.Color.gold()
             )
-            
+
             embed.add_field(
                 name="Wild Cat",
                 value=f"Breed: {encountered_cat['breed']}\n"
@@ -295,7 +295,7 @@ class CatCommands(commands.Cog):
                       f"🛡️ {encountered_cat['defense']} | 💨 {encountered_cat['speed']}",
                 inline=False
             )
-            
+
             # Create buttons for actions
             class EncounterView(discord.ui.View):
                 def __init__(self, cat_service, player_data):
