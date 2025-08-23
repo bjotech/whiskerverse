@@ -3,13 +3,20 @@ from discord import app_commands
 from discord.ext import commands
 from models.services.cat_service import CatService
 from models.services.player_service import PlayerService
+from models.services.timer_service import TimerService
 import random
+import json
+import os
 
 class CatCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.cat_service = CatService()
         self.player_service = PlayerService()
+        self.timer_service = TimerService()
+        # Load timer config from configs folder
+        with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'configs', 'timers_config.json'), 'r') as f:
+            self.timer_config = json.load(f)["timers"]
     
     @app_commands.command(name="cats", description="View your cat collection")
     async def cats(self, interaction: discord.Interaction):
@@ -264,6 +271,23 @@ class CatCommands(commands.Cog):
                     ephemeral=True
                 )
                 return
+
+            # Timer check for encounter
+            player_id = profile_data['player']['id']
+            action = "encounter"
+            cooldown = self.timer_config.get(action, 3600)
+            if not self.timer_service.is_available(player_id, action):
+                seconds_remaining = self.timer_service.get_seconds_remaining(player_id, action)
+                minutes = seconds_remaining // 60
+                seconds = seconds_remaining % 60
+                await interaction.followup.send(
+                    f"You can't use `/encounter` again for another {minutes} minutes and {seconds} seconds.",
+                    ephemeral=True
+                )
+                return
+
+            # Set next available time
+            self.timer_service.set_cooldown(player_id, action, cooldown)
             
             # Get active cat
             active_cat = profile_data['active_cat']

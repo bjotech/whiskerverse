@@ -180,14 +180,25 @@ def initialize_database():
     )
     """
     
-    # Execute all create table queries
+    # Timers table for player actions
+    create_timers_table = """
+    CREATE TABLE IF NOT EXISTS timers (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        player_id BIGINT NOT NULL,
+        action VARCHAR(255) NOT NULL,
+        next_available TIMESTAMP NOT NULL,
+        UNIQUE KEY unique_player_action (player_id, action)
+    )
+    """
+
     tables = [
         create_players_table,
         create_cats_table,
         create_inventory_table,
         create_items_table,
-        create_locations_table
+        create_locations_table,
+        create_timers_table
     ]
-    
+
     for table_query in tables:
-        db.execute_query(table_query) 
+        db.execute_query(table_query)

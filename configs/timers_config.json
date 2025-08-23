@@ -1,0 +1,10 @@
+{
+  "timers": {
+    "encounter": 3600,
+    "train": 1800
+  },
+
+  "players": {
+    "admin_id": 170950089924149248
+  }
+}
